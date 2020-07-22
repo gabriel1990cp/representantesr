@@ -6,9 +6,13 @@
 .env
 .env.backup
 .env.example
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
 npm-debug.log
 yarn-error.log
+public/js/**/*
+public/css/**/*
+public/mix-manifest.json
+resources/js/vue-i18n-locales.generated.js
+public/main.js
+public/0.worker.js
+resources/js/graphdata.model.json
 .idea/
