@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Procurar produto</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Adicionar produto</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -13,17 +13,17 @@
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="inputEmail4">Descrição</label>
-                        <input type="email" class="form-control" id="inputEmail4">
+                        <input type="text" class="form-control" id="id-descricao">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Código</label>
-                        <input type="email" class="form-control" id="inputEmail4">
+                        <input type="text" class="form-control" id="id-codigo">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Grupo</label>
-                        <input type="email" class="form-control" id="inputEmail4">
+                        <input type="text" class="form-control" id="id-grupo">
                     </div>
                 </div>
                 <button type="button" class="btn btn-primary">Pesquisar</button>
@@ -45,7 +45,7 @@
                                 <th scope="row">ABC123</th>
                                 <td>Bola azul</td>
                                 <td>UM</td>
-                                <td><input type="email" class="form-control" id="inputEmail4"></td>
+                                <td><input type="number" class="form-control" id="inputEmail4"></td>
                                 <td>
                                     <button type="submit" class="btn btn-primary">Adicionar</button>
                                 </td>
@@ -54,7 +54,7 @@
                                 <th scope="row">ABC123</th>
                                 <td>Bola azul</td>
                                 <td>UM</td>
-                                <td><input type="email" class="form-control" id="inputEmail4"></td>
+                                <td><input type="number" class="form-control" id="inputEmail4"></td>
                                 <td>
                                     <button type="submit" class="btn btn-primary">Adicionar</button>
                                 </td>
@@ -63,7 +63,7 @@
                                 <th scope="row">ABC123</th>
                                 <td>Bola azul</td>
                                 <td>UM</td>
-                                <td><input type="email" class="form-control" id="inputEmail4"></td>
+                                <td><input type="number" class="form-control" id="inputEmail4"></td>
                                 <td>
                                     <button type="submit" class="btn btn-primary">Adicionar</button>
                                 </td>
