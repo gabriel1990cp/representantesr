@@ -16,23 +16,23 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Representante</label>
-                                <input type="email" class="form-control" id="inputEmail4">
+                                <input type="text" class="form-control" id="id-representante">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">CNPJ Cliente</label>
-                                <input type="email" class="form-control" id="inputEmail4">
+                                <input type="text" class="form-control" id="id-cnpj-cliente" placeholder="Exemplo: 42469437000119">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Data pedido</label>
-                                <input type="date" class="form-control" id="inputEmail4">
+                                <input type="date" class="form-control" id="id-data-pedido">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Local retirada</label>
-                                <select id="inputEstado" class="form-control">
+                                <select id="id-local-retirada" class="form-control">
                                     <option selected disabled>Selecione</option>
                                     <option>Matriz</option>
                                     <option>Filial</option>
@@ -43,43 +43,39 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Valor total</label>
-                                <input type="email" class="form-control" id="inputEmail4">
+                                <input type="text" class="form-control" id="id-valor-total">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="inputEmail4">Data de entrega</label>
-                                <input type="date" class="form-control" id="inputEmail4">
+                                <input type="date" class="form-control" id="id-data-entrega">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="inputEmail4">Cond. PGTO</label>
-                                <input type="text" class="form-control" id="inputEmail4">
+                                <input type="text" class="form-control" id="id-cond-pagamento">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="inputEmail4">Desconto aplicado</label>
-                                <input type="text" class="form-control" id="inputEmail4">
+                                <input type="text" class="form-control" id="id-desconto-aplicado">
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-4">
                                 <label for="inputEmail4">Frete por conta de</label>
-                                <select id="inputEstado" class="form-control">
+                                <select id="id-frete-por-conta" class="form-control">
                                     <option selected disabled>Selecione</option>
                                     <option>Matriz</option>
                                     <option>Filial</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="inputEmail4">Data de entrega</label>
-                                <input type="date" class="form-control" id="inputEmail4">
-                            </div>
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-4">
                                 <label for="inputEmail4">Número cliente</label>
-                                <input type="number" class="form-control" id="inputEmail4">
+                                <input type="number" class="form-control" id="id-numero-pedido">
                             </div>
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-4">
                                 <label for="inputEmail4">Valor total</label>
-                                <input type="number" class="form-control" id="inputEmail4">
+                                <input type="text" class="form-control" id="id-valor-total">
                             </div>
                         </div>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
