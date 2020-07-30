@@ -16,13 +16,23 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Representante</label>
-                                <input type="text" class="form-control" id="id-representante">
+                                <select id="id-representante" class="form-control">
+                                    <option selected disabled>Selecione</option>
+                                    @foreach ($representantes as $representante)
+                                        <option value="{{$representante->an8}}">{{$representante->alph}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">CNPJ Cliente</label>
-                                <input type="text" class="form-control" id="id-cnpj-cliente" placeholder="Exemplo: 42469437000119">
+                                <select id="id-cliente" class="form-control">
+                                    <option selected disabled>Selecione</option>
+                                    @foreach ($clientes as $cliente)
+                                        <option value="{{$cliente->an8}}">{{$cliente->alph}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-row">
