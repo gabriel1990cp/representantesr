@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Cliente;
 use App\Representate;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {

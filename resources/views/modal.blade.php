@@ -11,26 +11,20 @@
             </div>
             <div class="modal-body">
                 <div class="form-row">
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-6">
                         <label for="inputEmail4">Descrição</label>
                         <input type="text" class="form-control" id="id-descricao">
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Código</label>
                         <input type="text" class="form-control" id="id-codigo">
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">Grupo</label>
-                        <input type="text" class="form-control" id="id-grupo">
-                    </div>
                 </div>
-                <button type="button" class="btn btn-primary">Pesquisar</button>
+                <button type="button" class="btn btn-primary" id="btn-pesquisar-produto">Pesquisar</button>
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="inputEmail4"></label>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="products-table">
                             <thead>
                             <tr>
                                 <th scope="col">Cod</th>
@@ -41,33 +35,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th scope="row">ABC123</th>
-                                <td>Bola azul</td>
-                                <td>UM</td>
-                                <td><input type="number" class="form-control" id="inputEmail4"></td>
-                                <td>
-                                    <button type="submit" class="btn btn-primary">Adicionar</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">ABC123</th>
-                                <td>Bola azul</td>
-                                <td>UM</td>
-                                <td><input type="number" class="form-control" id="inputEmail4"></td>
-                                <td>
-                                    <button type="submit" class="btn btn-primary">Adicionar</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">ABC123</th>
-                                <td>Bola azul</td>
-                                <td>UM</td>
-                                <td><input type="number" class="form-control" id="inputEmail4"></td>
-                                <td>
-                                    <button type="submit" class="btn btn-primary">Adicionar</button>
-                                </td>
-                            </tr>
+
                             </tbody>
                         </table>
                     </div>
