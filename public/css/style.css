@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap');
+@charset "UTF-8";
+
+body {
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #212529;
+    text-align: left;
+    background-color: #f8fafc;
+    font-weight: 300;
+}
+
+.form-control {
+    font-weight: 300;
+}
+
+.navbar-brand {
+    font-weight: 400;
+    font-size: 1.7rem;
+}
+
+.card-body {
+    background-color: aliceblue;
+}
