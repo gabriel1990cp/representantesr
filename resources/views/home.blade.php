@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <h5 class="card-header">Entrada de pedido</h5>
+                    <h5 class="card-header">Entrada de pedidos</h5>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -23,8 +23,6 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div>
-                        <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">CNPJ Cliente</label>
                                 <select id="id-cliente" class="form-control">
@@ -35,6 +33,7 @@
                                 </select>
                             </div>
                         </div>
+
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Data pedido</label>
@@ -57,33 +56,35 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 <label for="inputEmail4">Data de entrega</label>
                                 <input type="date" class="form-control" id="id-data-entrega">
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 <label for="inputEmail4">Cond. PGTO</label>
                                 <input type="text" class="form-control" id="id-cond-pagamento">
                             </div>
-                            <div class="form-group col-md-4">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
                                 <label for="inputEmail4">Desconto aplicado</label>
                                 <input type="text" class="form-control" id="id-desconto-aplicado">
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 <label for="inputEmail4">Frete por conta de</label>
                                 <select id="id-frete-por-conta" class="form-control">
                                     <option selected disabled>Selecione</option>
-                                    <option>Matriz</option>
-                                    <option>Filial</option>
+                                    <option>Fornecedor</option>
+                                    <option>Cliente</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-4">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
                                 <label for="inputEmail4">Número cliente</label>
                                 <input type="number" class="form-control" id="id-numero-pedido">
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 <label for="inputEmail4">Valor total</label>
                                 <input type="text" class="form-control" id="id-valor-total">
                             </div>
@@ -107,6 +108,7 @@
                                         <th scope="col">Ação</th>
                                     </tr>
                                     </thead>
+                                    <!--
                                     <tbody>
                                     <tr>
                                         <th scope="row">ABC123</th>
@@ -145,13 +147,17 @@
                                         </td>
                                     </tr>
                                     </tbody>
+                                    -->
                                 </table>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="">
                             Salvar entrada de pedido
                         </button>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="">
+                            Precificação
+                        </button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="">
                             Cancelar
                         </button>
                     </div>
