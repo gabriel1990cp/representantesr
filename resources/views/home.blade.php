@@ -80,7 +80,7 @@
                                 <input type="text" class="form-control" id="id-valor-total">
                             </div>
                         </div>
-                        
+
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Adicionar produto
                         </button>
