@@ -24,9 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $representantes = Representate::orderBy('alph','asc')->get();
         $clientes = Cliente::orderBy('alph','asc')->get();
 
-        return view('home',['representantes' => $representantes, 'clientes' => $clientes]);
+        return view('home',['clientes' => $clientes]);
     }
 }
