@@ -43,6 +43,7 @@
                         <th scope="col">Data Pedido</th>
                         <th scope="col">Valor total</th>
                         <th scope="col">Data de entrega</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -52,6 +53,7 @@
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
+                        <td><button type="button" class="btn btn-info">Detalhes</button></td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -59,6 +61,7 @@
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
+                        <td><button type="button" class="btn btn-info">Detalhes</button></td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -66,6 +69,7 @@
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
+                        <td><button type="button" class="btn btn-info">Detalhes</button></td>
                     </tr>
                     </tbody>
                 </table>
