@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <h5 class="card-header">Representante: Teste Aplicação</h5>
+                    <h5 class="card-header">Entrada de pedidos</h5>
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">

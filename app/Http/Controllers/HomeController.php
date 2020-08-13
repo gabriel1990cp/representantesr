@@ -20,9 +20,18 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
+    {
+        return view('pedidos');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index123()
     {
         $clientes = Cliente::orderBy('alph','asc')->get();
 
