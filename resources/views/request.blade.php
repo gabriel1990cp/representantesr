@@ -53,7 +53,7 @@
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
-                        <td><button type="button" class="btn btn-info">Detalhes</button></td>
+                        <td><button type="button" class="btn btn-success">Detalhes</button></td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -61,7 +61,7 @@
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
-                        <td><button type="button" class="btn btn-info">Detalhes</button></td>
+                        <td><button type="button" class="btn btn-success">Detalhes</button></td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -69,7 +69,7 @@
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
-                        <td><button type="button" class="btn btn-info">Detalhes</button></td>
+                        <td><button type="button" class="btn btn-success">Detalhes</button></td>
                     </tr>
                     </tbody>
                 </table>
