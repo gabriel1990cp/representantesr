@@ -20,3 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'RequestController@index')->name('home');
+
+Route::get('/create-request', 'RequestController@create')->name('create.request');
