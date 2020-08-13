@@ -21,4 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'RequestController@index')->name('home');
 
-Route::get('/create-request', 'RequestController@create')->name('create.request');
+Route::get('/create-request', 'RequestController@create')->name('create.reques
