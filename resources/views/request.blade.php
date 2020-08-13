@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <button class="btn btn-primary my-3">Pesquisar</button>
-                    <a type="button" class="btn btn-success"  href="{{ url('/create-request') }}">Novo pedido</a>
+                    <a type="button" class="btn btn-success" href="{{ url('/create-request') }}">Novo pedido</a>
                 </form>
             </div>
             <div class="col-md-12">
@@ -53,7 +53,11 @@
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
-                        <td><button type="button" class="btn btn-success">Detalhes</button></td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-primary">Detalhes</button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -61,7 +65,11 @@
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
-                        <td><button type="button" class="btn btn-success">Detalhes</button></td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-primary">Detalhes</button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
@@ -69,7 +77,11 @@
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
-                        <td><button type="button" class="btn btn-success">Detalhes</button></td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-primary">Detalhes</button>
+                            </div>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
