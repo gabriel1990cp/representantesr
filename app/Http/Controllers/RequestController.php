@@ -54,11 +54,11 @@ class RequestController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function show($id)
+    public function show($id = 0)
     {
-        //
+        return view('view-request');
     }
 
     /**

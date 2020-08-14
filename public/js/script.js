@@ -39,5 +39,9 @@ $(document).ready(function () {
         $("#products-table").append(newRow);
     }
 
+    $(".clickable-tr").click(function() {
+        window.location = $(this).data("href");
+    });
+
 });
 
