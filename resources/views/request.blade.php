@@ -7,7 +7,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{url('home')}}">Pedidos</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Lista de pedidos</li>
+                        <li class="breadcrumb-item active" aria-current="page">Todos pedidos</li>
                     </ol>
                 </nav>
                 @if (session('status'))
@@ -43,45 +43,32 @@
                         <th scope="col">Data Pedido</th>
                         <th scope="col">Valor total</th>
                         <th scope="col">Data de entrega</th>
-                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
+                    <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
                         <th scope="row">1</th>
                         <td>54.180.024/0001-07</td>
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
-                        <td>
-                            <div class="d-flex justify-content-center">
-                                <button type="button" class="btn btn-primary">Detalhes</button>
-                            </div>
-                        </td>
+
                     </tr>
-                    <tr>
+                    <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
                         <th scope="row">1</th>
                         <td>54.180.024/0001-07</td>
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
-                        <td>
-                            <div class="d-flex justify-content-center">
-                                <button type="button" class="btn btn-primary">Detalhes</button>
-                            </div>
-                        </td>
+
                     </tr>
-                    <tr>
+                    <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
                         <th scope="row">1</th>
                         <td>54.180.024/0001-07</td>
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
-                        <td>
-                            <div class="d-flex justify-content-center">
-                                <button type="button" class="btn btn-primary">Detalhes</button>
-                            </div>
-                        </td>
+
                     </tr>
                     </tbody>
                 </table>
