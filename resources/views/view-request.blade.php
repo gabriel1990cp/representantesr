@@ -8,6 +8,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{url('home')}}">Pedidos</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Detalhes do pedido</li>
+                        <li class="breadcrumb-item active" aria-current="page">Representante: Teste aplicação</li>
                     </ol>
                 </nav>
                 @if (session('status'))
@@ -52,10 +53,6 @@
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Frete por conta de</label>
                         <input type="text" class="form-control" id="id-frete-por-conta" value="Cliente" disabled>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputEmail4">Valor total</label>
-                        <input type="text" class="form-control" id="id-valor-total" value="R$1.000,00" disabled>
                     </div>
                 </div>
                 <div class="form-row">

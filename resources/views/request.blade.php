@@ -8,6 +8,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{url('home')}}">Pedidos</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Todos pedidos</li>
+                        <li class="breadcrumb-item active" aria-current="page">Representante: Teste aplicação</li>
                     </ol>
                 </nav>
                 @if (session('status'))
@@ -27,7 +28,7 @@
                         </div>
                         <div class="col-4">
                             <label>CNPJ</label>
-                            <input type="text" class="form-control" placeholder="Zip">
+                            <input type="text" class="form-control" placeholder="Digite o CNPJ">
                         </div>
                     </div>
                     <button class="btn btn-primary my-3">Pesquisar</button>
@@ -48,7 +49,7 @@
                     <tbody>
                     <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
                         <th scope="row">1</th>
-                        <td>54.180.024/0001-07</td>
+                        <td>54.180.024/0001-07</a></td>
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
@@ -56,7 +57,7 @@
                     </tr>
                     <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
                         <th scope="row">1</th>
-                        <td>54.180.024/0001-07</td>
+                        <td>54.180.024/0001-07</a></td>
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
@@ -64,11 +65,10 @@
                     </tr>
                     <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
                         <th scope="row">1</th>
-                        <td>54.180.024/0001-07</td>
+                        <td>54.180.024/0001-07</a></td>
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
-
                     </tr>
                     </tbody>
                 </table>
