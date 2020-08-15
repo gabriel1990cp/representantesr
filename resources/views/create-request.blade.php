@@ -8,6 +8,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{url('home')}}">Pedidos</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Entrada de pedidos</li>
+                        <li class="breadcrumb-item active" aria-current="page">Representante: Teste aplicação</li>
                     </ol>
                 </nav>
                 @if (session('status'))
@@ -41,7 +42,7 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Valor total</label>
-                        <input type="text" class="form-control" id="id-valor-total">
+                        <input type="text" class="form-control" id="id-valor-total" disabled>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Data de entrega</label>
@@ -66,10 +67,6 @@
                             <option>Cliente</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label for="inputEmail4">Valor total</label>
-                        <input type="text" class="form-control" id="id-valor-total">
-                    </div>
                 </div>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Adicionar produto
@@ -90,9 +87,8 @@
                                 <th scope="col">Ação</th>
                             </tr>
                             </thead>
-                            <!--
                             <tbody>
-                            <tr>
+                            <tr style="display: none" class="teste-cliente">
                                 <th scope="row">ABC123</th>
                                 <td>Bola azul</td>
                                 <td>UM</td>
@@ -104,6 +100,7 @@
                                     <button class="btn btn-danger">Deletar</button>
                                 </td>
                             </tr>
+                            <!--
                             <tr>
                                 <th scope="row">ABC123</th>
                                 <td>Bola roxa</td>

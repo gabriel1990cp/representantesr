@@ -34,13 +34,17 @@ $(document).ready(function () {
         cols += '<td>' + value['dsc1'] + '</td>';
         cols += '<td>' + value['srp1'] + '</td>';
         cols += '<td>' + 0 + '</td>';
-        cols += '<td><button type="submit" class="btn btn-primary">Adicionar</button></td>';
+        cols += '<td><button type="submit" class="btn btn-primary valicacao-cliente">Adicionar</button></td>';
         newRow.append(cols);
         $("#products-table").append(newRow);
     }
 
     $(".clickable-tr").click(function() {
         window.location = $(this).data("href");
+    });
+
+    $(".valicacao-cliente").click(function (){
+        alert('chegou!');
     });
 
 });
