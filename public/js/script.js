@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#btn-pesquisar-produto').click(function () {
+    $('#btn-pesquisar-produto1').click(function () {
 
         //$("#products-table tr").detach();
         $("#products-table tbody tr").remove();
@@ -43,9 +43,13 @@ $(document).ready(function () {
         window.location = $(this).data("href");
     });
 
-    $(".valicacao-cliente").click(function (){
-        alert('chegou!');
+
+    $(".valicacao-cliente").click(function() {
+        $(".teste-cliente").show();
     });
 
+    $(".precificacao").click(function (){
+        $(".valor-sugerido").html('1,00')
+    });
 });
 
