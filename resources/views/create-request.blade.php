@@ -89,13 +89,13 @@
                             </thead>
                             <tbody>
                             <tr style="display: none" class="teste-cliente">
-                                <th scope="row">ABC123</th>
-                                <td>Bola azul</td>
+                                <th scope="row">12595</th>
+                                <td>BALAO 3 LISO BASIC C/100 VM</td>
                                 <td>UM</td>
-                                <td>10</td>
+                                <td>1</td>
                                 <td>5,30</td>
-                                <td><input type="text" class="form-control" id="inputEmail4" value="8,30"></td>
-                                <td>80,30</td>
+                                <td class="valor-sugerido">5,30</td>
+                                <td>5,30</td>
                                 <td>
                                     <button class="btn btn-danger">Deletar</button>
                                 </td>
@@ -133,7 +133,7 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="">
                     Salvar entrada de pedido
                 </button>
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="">
+                <button type="button" class="btn btn-secondary precificacao" data-toggle="modal" data-target="">
                     Precificação
                 </button>
                 <a type="button" class="btn btn-danger" href="{{ url('/home') }}">
