@@ -3,20 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\GenerateQuery;
+use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 use App\Produto;
-use Illuminate\Support\Facades\DB;
-
 
 class ProductController extends Controller
 {
+    protected $product;
+
+    public function __construct(ProductRepository $product)
+    {
+        $this->product = $product;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\JsonResponse
      */
+
+    public function show()
+    {
+        return $this->product->find(10);
+    }
+
+
     public function search(Request $request)
     {
+        $validatedData = $request->validate([
+            'description' => 'required',
+        ]);
+
+
+        dd($validatedData);
+
         if (!empty($request->description)) {
             $product = Produto::where('dsc1', 'like', "{$request->description}%")->limit(15)->get();
         } else {

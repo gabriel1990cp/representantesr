@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#btn-pesquisar-produto1').click(function () {
+    $('#btn-pesquisar-produto').click(function () {
 
         //$("#products-table tr").detach();
         $("#products-table tbody tr").remove();
