@@ -30,7 +30,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Data pedido</label>
-                        <input type="date" class="form-control" id="id-data-pedido">
+                        <input type="text" class="form-control" id="id-data-pedido" value="{{date('d/m/Y')}}" disabled>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Local retirada</label>
@@ -45,8 +45,8 @@
                         <input type="text" class="form-control" id="id-valor-total" disabled>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="inputEmail4">Data de entrega</label>
-                        <input type="date" class="form-control" id="id-data-entrega">
+                        <label for="inputEmail4">Retirada Programada</label>
+                        <input type="date" class="form-control" id="id-retirada-programada">
                     </div>
                 </div>
                 <div class="form-row">
@@ -63,8 +63,8 @@
                         <label for="inputEmail4">Frete por conta de</label>
                         <select id="id-frete-por-conta" class="form-control">
                             <option selected disabled>Selecione</option>
-                            <option>Fornecedor</option>
-                            <option>Cliente</option>
+                            <option value="cif_cliente">CIF (Cliente)</option>
+                            <option value="fob_fornecedor)">FOB (Fornecedor)</option>
                         </select>
                     </div>
                 </div>

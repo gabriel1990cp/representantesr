@@ -1,7 +1,7 @@
 $(document).ready(function () {
+
     $('#btn-pesquisar-produto').click(function () {
 
-        //$("#products-table tr").detach();
         $("#products-table tbody tr").remove();
 
         $description = $("#id-descricao").val();
@@ -20,7 +20,7 @@ $(document).ready(function () {
                 });
             },
             error: function (error) {
-                alert('erro');
+                alert(error);
             }
         });
     });
