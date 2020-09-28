@@ -16,17 +16,20 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">CNPJ Cliente</label>
-                        <select id="id-cliente" class="form-control">
-                            <option selected disabled>Selecione</option>
-                            @foreach ($clientes as $cliente)
-                                <option value="{{$cliente->an8}}">{{$cliente->alph}}</option>
-                            @endforeach
-                        </select>
+                <form action="{{url('/get-client')}}" method="get" enctype="multipart/form-data" id="form-search-client">
+                    @csrf
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Consultar CNPJ</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Exemplo:60365935000101" id="cnpj" name="cnpj">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="submit">Consultar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </form>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Data pedido</label>

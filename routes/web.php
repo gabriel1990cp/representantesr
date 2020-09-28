@@ -19,8 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'RequestController@index')->name('home');
+Route::get('/home', 'NewRequestController@index')->name('home');
 
-Route::get('/create-request', 'RequestController@create')->name('create.request');
+Route::post('/create-request', 'NewRequestController@create')->name('create.request');
 
-Route::get('/show-request', 'RequestController@show')->name('view.reqquest');
+Route::get('/show-request', 'NewRequestController@show')->name('view.reqquest');
+
+Route::post('/get-client', 'SearchClientController@search')->name('search-client');
+
+Route::view('/search-client', 'search-client');

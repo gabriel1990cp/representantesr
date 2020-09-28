@@ -5,6 +5,7 @@ $(document).ready(function () {
         $("#products-table tbody tr").remove();
 
         $description = $("#id-descricao").val();
+
         $code = $("#id-codigo").val();
 
         $.ajax
@@ -26,8 +27,7 @@ $(document).ready(function () {
     });
 
 
-    function newRowTable(index, value)
-    {
+    function newRowTable(index, value) {
         var newRow = $("<tr>");
         var cols = "";
         cols += '<td>' + value['itm'] + '</td>';
@@ -39,17 +39,17 @@ $(document).ready(function () {
         $("#products-table").append(newRow);
     }
 
-    $(".clickable-tr").click(function() {
+    $(".clickable-tr").click(function () {
         window.location = $(this).data("href");
     });
 
 
-    $(".valicacao-cliente").click(function() {
+    $(".valicacao-cliente").click(function () {
         $(".teste-cliente").show();
     });
 
-    $(".precificacao").click(function (){
-        $(".valor-sugerido").html('1,00')
+    $("#id_cliente").change(function () {
+        $( "#form-search-client" ).submit();
     });
 });
 

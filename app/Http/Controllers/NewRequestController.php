@@ -3,18 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Cliente;
+use App\Repositories\ClientRepository;
 use Illuminate\Http\Request;
 
-class RequestController extends Controller
+class NewRequestController extends Controller
 {
+    private $clientRepository;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ClientRepository $clientRepository)
     {
         $this->middleware('auth');
+
+        $this->clientRepository = $clientRepository;
     }
 
     /**
@@ -30,13 +35,14 @@ class RequestController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response|\Illuminate\View\View
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create()
+    public function create(Request $request)
     {
-        $clientes = Cliente::orderBy('alph','asc')->get();
+        dd($request);
 
-        return view('create-request',['clientes' => $clientes]);
+        return view('create-request');
     }
 
     /**
