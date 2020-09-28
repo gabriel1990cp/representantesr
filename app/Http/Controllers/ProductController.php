@@ -34,9 +34,6 @@ class ProductController extends Controller
             'description' => 'required',
         ]);
 
-
-        dd($validatedData);
-
         if (!empty($request->description)) {
             $product = Produto::where('dsc1', 'like', "{$request->description}%")->limit(15)->get();
         } else {

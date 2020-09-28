@@ -16,16 +16,25 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <form action="{{url('/create-request')}}" method="post" enctype="multipart/form-data" id="form-search-client">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form action="{{url('/search-client')}}" method="post" enctype="multipart/form-data" id="form-search-client">
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="inputEmail4">Consultar CNPJ</label>
+                            <label for="inputEmail4">CNPJ</label>
                             <input type="text" id="cnpj" name="cnpj" class="form-control" placeholder="Exemplo:05159676000146">
                         </div>
                     </div>
                     <button type="submit" data-toggle="modal" data-target="" class="btn btn-primary">
-                        Gerar entrada de pedido
+                        Gerar pedido para CNPJ
                     </button>
                     <a type="button" href="{{url('/home')}}" class="btn btn-danger">
                         Cancelar

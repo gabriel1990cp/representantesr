@@ -25,6 +25,6 @@ Route::post('/create-request', 'NewRequestController@create')->name('create.requ
 
 Route::get('/show-request', 'NewRequestController@show')->name('view.reqquest');
 
-Route::post('/get-client', 'SearchClientController@search')->name('search-client');
+Route::post('/search-client', 'SearchClientController@search')->name('search-client');
 
 Route::view('/search-client', 'search-client');

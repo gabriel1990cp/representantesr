@@ -38,10 +38,8 @@ class NewRequestController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create(Request $request)
+    public function create()
     {
-        dd($request);
-
         return view('create-request');
     }
 

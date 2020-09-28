@@ -16,20 +16,9 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <form action="{{url('/get-client')}}" method="get" enctype="multipart/form-data" id="form-search-client">
-                    @csrf
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Consultar CNPJ</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Exemplo:60365935000101" id="cnpj" name="cnpj">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="submit">Consultar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                <div class="alert alert-secondary" role="alert">
+                    <strong>{{$client->alph}} - CNPJ {{$client->tax}}</strong>
+                </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Data pedido</label>
@@ -54,14 +43,17 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
+                        <label for="inputEmail4">Data de entrada do pedido</label>
+                        <input type="date" class="form-control" id="id-data-entrada-pedido" value="{{date('Y-m-d')}}">
+                    </div>
+                    <div class="form-group col-md-3">
                         <label for="inputEmail4">Cond. PGTO</label>
-                        <input type="text" class="form-control" id="id-cond-pagamento">
+                        <input type="text" class="form-control" id="id-cond-pagamento" value="{{$client->trar}}">
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Desconto aplicado</label>
                         <input type="text" class="form-control" id="id-desconto-aplicado">
                     </div>
-
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Frete por conta de</label>
                         <select id="id-frete-por-conta" class="form-control">
@@ -69,6 +61,29 @@
                             <option value="cif_cliente">CIF (Cliente)</option>
                             <option value="fob_fornecedor)">FOB (Fornecedor)</option>
                         </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputEmail4">Transportadora</label>
+                        <select id="id-transportadora" class="form-control">
+                            <option selected disabled>Selecione</option>
+                            @isset($carries)
+                                @foreach($carries as $carrie)
+                                    <option value="{{$carrie->an8}}">$carrie->alph</option>
+                                @endforeach
+                            @endisset
+                        </select>
+                    </div>
+                    <div class="form-group col-md-9">
+                        <label for="inputEmail4">Ordem de compra</label>
+                        <input type="text" class="form-control" id="id-desconto-aplicado">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="exampleFormControlTextarea1">Observação</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                     </div>
                 </div>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
