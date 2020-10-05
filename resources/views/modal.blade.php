@@ -35,15 +35,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>12595</td>
-                                <td>BALAO 3 LISO BASIC C/100 VM</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>
-                                    <button type="button" class="btn btn-primary valicacao-cliente">Adicionar</button>
-                                </td>
-                            </tr>
+
                             </tbody>
                         </table>
                     </div>

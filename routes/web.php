@@ -28,3 +28,7 @@ Route::get('/show-request', 'NewRequestController@show')->name('view.reqquest');
 Route::post('/search-client', 'SearchClientController@search')->name('search-client');
 
 Route::view('/search-client', 'search-client');
+
+Route::view('/add-product', 'add-product');
+
+Route::post('/search-product', 'ProductController@search')->name('search-product');

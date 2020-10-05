@@ -30,8 +30,10 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-        $validatedData = $request->validate([
-            'description' => 'required',
+        dd($request->all());
+
+        $request->validate([
+            'description-produto' => 'required',
         ]);
 
         if (!empty($request->description)) {

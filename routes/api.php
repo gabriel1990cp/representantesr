@@ -18,5 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('searchProduct', 'ProductController@search')->name('search-product');
+
 Route::get('testeProduct', 'ProductController@show')->name('show-product');

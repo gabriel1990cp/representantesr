@@ -86,9 +86,9 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <a type="button" href="{{url('/add-product')}}" class="btn btn-primary">
                     Adicionar produto
-                </button>
+                </a>
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="inputEmail4"></label>
