@@ -2,24 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Cliente;
-use App\Repositories\ClientRepository;
 use Illuminate\Http\Request;
 
 class NewRequestController extends Controller
 {
-    private $clientRepository;
-
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(ClientRepository $clientRepository)
+    public function __construct()
     {
         $this->middleware('auth');
 
-        $this->clientRepository = $clientRepository;
     }
 
     /**
@@ -51,7 +46,7 @@ class NewRequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd('chegou!');
     }
 
     /**

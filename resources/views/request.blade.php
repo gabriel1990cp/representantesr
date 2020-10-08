@@ -49,7 +49,14 @@
                     <tbody>
                     <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
                         <th scope="row">1</th>
-                        <td>54.180.024/0001-07</a></td>
+                        <td>54.180.024/0001-07</td>
+                        <td>12/08/2020</td>
+                        <td>R$3.000,10</td>
+                        <td>15/08/2020</td>
+                    </tr>
+                    <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
+                        <th scope="row">1</th>
+                        <td>54.180.024/0001-07</td>
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
@@ -57,29 +64,20 @@
                     </tr>
                     <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
                         <th scope="row">1</th>
-                        <td>54.180.024/0001-07</a></td>
-                        <td>12/08/2020</td>
-                        <td>R$3.000,10</td>
-                        <td>15/08/2020</td>
-
-                    </tr>
-                    <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
-                        <th scope="row">1</th>
-                        <td>54.180.024/0001-07</a></td>
+                        <td>54.180.024/0001-07</td>
                         <td>12/08/2020</td>
                         <td>R$3.000,10</td>
                         <td>15/08/2020</td>
                     </tr>
                     </tbody>
                 </table>
-
             </div>
         </div>
         <nav>
             <ul class="pagination justify-content-center">
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
+                        <span aria-hidden="true">&raquo;</span>
                         <span class="sr-only">Previous</span>
                     </a>
                 </li>

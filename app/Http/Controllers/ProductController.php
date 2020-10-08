@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\GenerateQuery;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
-use App\Produto;
+
 
 class ProductController extends Controller
 {
     protected $product;
+
+    protected $limit = 15;
 
     public function __construct(ProductRepository $product)
     {
@@ -27,24 +28,20 @@ class ProductController extends Controller
         return $this->product->find(10);
     }
 
-
     public function search(Request $request)
     {
-        dd($request->all());
+        $resulProduct = false;
 
-        $request->validate([
-            'description-produto' => 'required',
-        ]);
+        //if ($request->itm || $request->dsc1) {
+            if (!empty($request->itm)) {
+                $resulProduct = $this->product->findCode($request->itm);
+            } else {
+                $resulProduct = $this->product->withLimit($this->limit)->findName($request->dsc1);
+            }
+        //}
 
-        if (!empty($request->description)) {
-            $product = Produto::where('dsc1', 'like', "{$request->description}%")->limit(15)->get();
-        } else {
-            $product = Produto::where('itm', $request->code)->first();
-        }
+        //dd($resulProduct);
 
-        return response()->json([
-            'data' => $product,
-        ], 200);
-
+        return view('add-product',['resulProduct' => $resulProduct]);
     }
 }

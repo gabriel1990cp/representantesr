@@ -32,3 +32,5 @@ Route::view('/search-client', 'search-client');
 Route::view('/add-product', 'add-product');
 
 Route::post('/search-product', 'ProductController@search')->name('search-product');
+
+Route::get('/add-product1', 'RequestSessionController@addProduct')->name('add-product1');

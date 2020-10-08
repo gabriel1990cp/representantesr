@@ -26,12 +26,12 @@ class SearchClientController extends Controller
             'cnpj' => 'required|exists:clientes,tax',
         ]);
 
-        //TODO - Adicionar o CNPJ na sessão para finalizar o carrinho
-
         $client = $this->clientRepository->getClientByCnpj($request->cnpj);
         $carries = $this->carrierRepository->getCarrierByCnpj($request->cnpj);
 
+        session(['NameCurrentClient' => $client->alph]);
+        session(['CNPJCurrentClient' => $client->tax]);
 
-        return view('create-request',['client' => $client, 'carries' => $carries]);
+        return view('create-request', ['client' => $client, 'carries' => $carries]);
     }
 }
