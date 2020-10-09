@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <button class="btn btn-primary my-3">Pesquisar</button>
-                    <a type="button" class="btn btn-success" href="{{ url('/search-client') }}">Novo pedido</a>
+                    <a type="button" class="btn btn-success" href="{{ url('/procurar-cliente') }}">Novo pedido</a>
                 </form>
             </div>
             <div class="col-md-12">

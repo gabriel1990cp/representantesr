@@ -19,6 +19,7 @@
                 <div class="alert alert-secondary" role="alert">
                     <strong>{{session('NameCurrentClient')}} - CNPJ {{session('CNPJCurrentClient')}}</strong>
                 </div>
+                <div class="alert alert-danger alert-ajax" role="alert" style="display: none"></div>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -31,6 +32,7 @@
                 <form action="{{url('/search-product')}}" method="post" enctype="multipart/form-data"
                       id="form-search-client">
                     @csrf
+                    <meta name="_token" content="{{ csrf_token() }}">
                     <div class="form-row">
                         <div class="form-group col-md-6"><label for="description-produto">Descrição</label>
                             <input type="text" id="dsc1" class="form-control" name="dsc1">
@@ -66,7 +68,7 @@
                                 <th scope="row">{{$rowProduct->itm}}</th>
                                 <td>{{$rowProduct->dsc1}}</td>
                                 <td>{{$rowProduct->srp1}}</td>
-                                <td><input type="number" name="" id="" class="amount" value="0"></td>
+                                <td><input type="number" name="" id="" class="amount" value="0"><input type="hidden" value="{{$rowProduct->idProduto}}" class="idProduto"></td>
                                 <td>
                                     <button class="btn btn-primary btn-add-product">Adicionar</button>
                                 </td>

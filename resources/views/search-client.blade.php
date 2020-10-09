@@ -25,7 +25,7 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{url('/search-client')}}" method="post" enctype="multipart/form-data" id="form-search-client">
+                <form action="{{url('/novo-pedido')}}" method="post" enctype="multipart/form-data" id="form-search-client">
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-12">

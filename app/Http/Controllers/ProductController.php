@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     protected $product;
 
-    protected $limit = 15;
+    protected $limit = 10;
 
     public function __construct(ProductRepository $product)
     {
@@ -30,18 +30,12 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-        $resulProduct = false;
+        if (!empty($request->itm)) {
+            $resulProduct = $this->product->withLimit($this->limit)->findCode($request->itm);
+        } else {
+            $resulProduct = $this->product->withLimit($this->limit)->findName($request->dsc1);
+        }
 
-        //if ($request->itm || $request->dsc1) {
-            if (!empty($request->itm)) {
-                $resulProduct = $this->product->findCode($request->itm);
-            } else {
-                $resulProduct = $this->product->withLimit($this->limit)->findName($request->dsc1);
-            }
-        //}
-
-        //dd($resulProduct);
-
-        return view('add-product',['resulProduct' => $resulProduct]);
+        return response()->json(['data' => $resulProduct], 200);
     }
 }

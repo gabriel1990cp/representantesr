@@ -19,6 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('testeProduct', 'ProductController@show')->name('show-product');
-
 

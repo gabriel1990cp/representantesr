@@ -1,4 +1,5 @@
 <!-- Modal -->
+<meta name="_token" content="{{ csrf_token() }}">
 <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -20,6 +21,7 @@
                         <input type="text" class="form-control" id="id-codigo">
                     </div>
                 </div>
+                <div class="alert alert-danger alert-ajax" style="display: none" role="alert"></div>
                 <button type="button" class="btn btn-primary" id="btn-pesquisar-produto">Pesquisar</button>
                 <div class="form-row">
                     <div class="form-group col-md-12">

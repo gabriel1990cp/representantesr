@@ -17,12 +17,12 @@ class ProductRepository
 
     public function findCode($code)
     {
-        return $this->product->where('itm', $code)->get();
+        return $this->product->where('itm', $code)->limit($this->limit)->get();
     }
 
     public function findName($name)
     {
-        return $this->product->where('dsc1', 'like', "{$name}%")->limit($this->limit)->get();
+        return $this->product->where('dsc1', 'like', "%{$name}%")->limit($this->limit)->get();
     }
 
     public function withLimit($limit)

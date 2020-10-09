@@ -25,12 +25,16 @@ Route::post('/create-request', 'NewRequestController@create')->name('create.requ
 
 Route::get('/show-request', 'NewRequestController@show')->name('view.reqquest');
 
-Route::post('/search-client', 'SearchClientController@search')->name('search-client');
+Route::post('/novo-pedido', 'NewRequestController@search')->name('search-client');
 
-Route::view('/search-client', 'search-client');
+Route::post('/get-product-by-cnpj', 'NewRequestController@getProductByCnpj')->name('get-product-by-cnpj');
 
-Route::view('/add-product', 'add-product');
+Route::post('/remove-product', 'NewRequestController@destroy')->name('remove-product');
+
+Route::view('/procurar-cliente', 'search-client');
+
+Route::view('/adicionar-produto', 'add-product');
 
 Route::post('/search-product', 'ProductController@search')->name('search-product');
 
-Route::get('/add-product1', 'RequestSessionController@addProduct')->name('add-product1');
+Route::post('/add-product', 'NewRequestController@store')->name('adicionar-produto');

@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        <meta name="_token" content="{{ csrf_token() }}">
         <div class="row">
             <div class="col-md-12">
                 <nav aria-label="breadcrumb">
@@ -20,6 +21,7 @@
                     <strong>{{$client->alph}} - CNPJ {{$client->tax}}</strong>
                 </div>
                 <div class="form-row">
+                    <input type="hidden" value="{{$client->tax}}" name="an82" id="an82">
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Data pedido</label>
                         <input type="text" class="form-control" id="id-data-pedido" value="{{date('d/m/Y')}}" disabled>
@@ -52,7 +54,7 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Desconto aplicado</label>
-                        <input type="text" class="form-control" id="id-desconto-aplicado">
+                        <input type="text" class="form-control" id="id-desconto-aplicado1">
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Frete por conta de</label>
@@ -86,18 +88,18 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                     </div>
                 </div>
-                <a type="button" href="{{url('/add-product')}}" class="btn btn-primary">
+                <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">
                     Adicionar produto
-                </a>
+                </button>
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="inputEmail4"></label>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="products-cnpj">
                             <thead>
                             <tr>
                                 <th scope="col">Cod</th>
                                 <th scope="col">Descrição</th>
-                                <th scope="col">UM</th>
+                                <th scope="col">Grupo</th>
                                 <th scope="col">Quantidade</th>
                                 <th scope="col">Valor un.</th>
                                 <th scope="col">Valor un. sugerido</th>
@@ -106,45 +108,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr style="display: none" class="teste-cliente">
-                                <th scope="row">12595</th>
-                                <td>BALAO 3 LISO BASIC C/100 VM</td>
-                                <td>UM</td>
-                                <td>1</td>
-                                <td>5,30</td>
-                                <td class="valor-sugerido">5,30</td>
-                                <td>5,30</td>
-                                <td>
-                                    <button class="btn btn-danger">Deletar</button>
-                                </td>
-                            </tr>
-                            <!--
-                            <tr>
-                                <th scope="row">ABC123</th>
-                                <td>Bola roxa</td>
-                                <td>UM</td>
-                                <td>10</td>
-                                <td>5,30</td>
-                                <td><input type="text" class="form-control" id="inputEmail4" value="8,30"></td>
-                                <td>80,30</td>
-                                <td>
-                                    <button class="btn btn-danger">Deletar</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">ABC123</th>
-                                <td>Bola amarela</td>
-                                <td>UM</td>
-                                <td>10</td>
-                                <td>5,30</td>
-                                <td><input type="text" class="form-control" id="inputEmail4" value="8,30"></td>
-                                <td>80,30</td>
-                                <td>
-                                    <button class="btn btn-danger">Deletar</button>
-                                </td>
-                            </tr>
+
+
                             </tbody>
-                            -->
                         </table>
                     </div>
                 </div>
@@ -158,8 +124,8 @@
                     Cancelar
                 </a>
             </div>
-
         </div>
     </div>
     @include('modal')
 @endsection
+
