@@ -115,4 +115,14 @@ class NewRequestController extends Controller
 
         return response()->json(['status' => 'success', 'data' => $returnGetProductByCnpj], 201);
     }
+
+    public function suggestedValueProduct(Request $request)
+    {
+        try {
+            $this->requestTempRepository->update($request->valor_sugerido, $request->idPedidoTemp);
+            return response()->json(['status' => 'success'], 200);
+        } catch (\Exception $exception) {
+            return response()->json(['status' => 'error'], 500);
+        }
+    }
 }

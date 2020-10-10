@@ -20,4 +20,11 @@ class RequestTempRepository
     {
         return PedidoTemp::destroy($id);
     }
+
+    public function update($valorSugerido, $id)
+    {
+        $pedidoTemp = PedidoTemp::find($id);
+        $pedidoTemp->valor_sugerido = $valorSugerido;
+        return $pedidoTemp->save();
+    }
 }

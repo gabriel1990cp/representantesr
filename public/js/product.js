@@ -72,6 +72,11 @@ function getProductByCnpj()
     });
 }
 
+var atual = 600000.00;
+
+//com R$
+var f = atual.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+
 function rowTable(index, value, zeroedProduct) {
 
     var newRow = $("<tr>");
@@ -81,7 +86,7 @@ function rowTable(index, value, zeroedProduct) {
     cols += '<td>' + value['info_product']['srp1'] + '</td>';
     cols += '<td ' + zeroedProduct + '>' + value['quantidade'] + '</td>';
     cols += '<td>' + value['info_product']['uprc'] + '</td>';
-    cols += '<td>' + '-' + '</td>';
+    cols += '<td>' + '<input type="text" name="" id="valor_sugerido" class="valor_sugerido" value="' + value['valor_sugerido'] + '" >' + '<input type="hidden" class="suggested-value" id="suggested-value" value="' + value['id'] + '"></td>';
     cols += '<td>' + '-' + '</td>';
     cols += '<td><button type="button" class="btn btn-danger remove-product" data-id="' + value['id'] + '">Remover</button></td>';
     newRow.append(cols);
@@ -107,11 +112,35 @@ $(document).on('click', '.remove-product', function (event) {
         dataType: 'json',
         data: {idPedidoTemp},
         url: 'remove-product',
-        success: function (retorno) {
+        success: function () {
             getProductByCnpj()
         },
         error: function (error) {
             console.log(error)
         }
     });
+})
+
+
+$(document).on('mouseout', '.valor_sugerido', function (event) {
+    event.preventDefault()
+
+    var valor_sugerido = $(this).closest("tr").find(".valor_sugerido").val();
+    var idPedidoTemp = $(this).closest("tr").find(".suggested-value").val();
+
+    ajaxSetup();
+
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        data: {idPedidoTemp, valor_sugerido},
+        url: 'suggested-value-product',
+        success: function () {
+            getProductByCnpj()
+        },
+        error: function (error) {
+            console.log(error)
+        }
+    });
+
 })

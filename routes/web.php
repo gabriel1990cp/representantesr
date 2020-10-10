@@ -31,6 +31,8 @@ Route::post('/get-product-by-cnpj', 'NewRequestController@getProductByCnpj')->na
 
 Route::post('/remove-product', 'NewRequestController@destroy')->name('remove-product');
 
+Route::post('/suggested-value-product', 'NewRequestController@suggestedValueProduct')->name('suggested-value-product');
+
 Route::view('/procurar-cliente', 'search-client');
 
 Route::view('/adicionar-produto', 'add-product');

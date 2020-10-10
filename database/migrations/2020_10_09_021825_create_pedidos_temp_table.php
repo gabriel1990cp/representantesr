@@ -15,18 +15,13 @@ class CreatePedidosTempTable extends Migration
     {
         Schema::create('pedidos_temp', function (Blueprint $table) {
             $table->id();
-
-
-
-
             $table->integer('idProduto');
             $table->foreign('idProduto')
             ->references('idProduto')
             ->on('produtos');
-
-
             $table->integer('quantidade');
             $table->string('cnpj');
+            $table->float('valor_sugerido', 3, 2)->nullable();
             $table->timestamps();
         });
     }
