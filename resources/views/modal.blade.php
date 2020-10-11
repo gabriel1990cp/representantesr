@@ -1,11 +1,11 @@
 <!-- Modal -->
 <meta name="_token" content="{{ csrf_token() }}">
-<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
+<div class="modal fade bd-example-modal-lg" id="addProductModal" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Adicionar produto</h5>
+                <h5 class="modal-title" id="addProductModalLabel">Adicionar produto</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     $('#btn-pesquisar-produto').click(function () {
 
         $.ajaxSetup({

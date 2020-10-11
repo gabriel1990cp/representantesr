@@ -47,28 +47,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
-                        <th scope="row">1</th>
-                        <td>54.180.024/0001-07</td>
-                        <td>12/08/2020</td>
-                        <td>R$3.000,10</td>
-                        <td>15/08/2020</td>
-                    </tr>
-                    <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
-                        <th scope="row">1</th>
-                        <td>54.180.024/0001-07</td>
-                        <td>12/08/2020</td>
-                        <td>R$3.000,10</td>
-                        <td>15/08/2020</td>
-
-                    </tr>
-                    <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
-                        <th scope="row">1</th>
-                        <td>54.180.024/0001-07</td>
-                        <td>12/08/2020</td>
-                        <td>R$3.000,10</td>
-                        <td>15/08/2020</td>
-                    </tr>
+                    @isset($requests)
+                        @foreach($requests as $request)
+                            <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
+                                <th scope="row">1</th>
+                                <td>{{$request->tax}}</td>
+                                <td>{{$request->drqj}}</td>
+                                <td>{{$request->aexp}}</td>
+                                <td>{{$request->pddj}}</td>
+                            </tr>
+                        @endforeach
+                    @endisset
                     </tbody>
                 </table>
             </div>

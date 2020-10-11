@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\CarrierRepository;
 use App\Repositories\ClientRepository as ClientRepositoryAlias;
 use App\Repositories\RequestTempRepository;
+use App\Repositories\OrderRepository;
 use Illuminate\Http\Request;
 
 class NewRequestController extends Controller
@@ -12,6 +13,7 @@ class NewRequestController extends Controller
     private $clientRepository;
     private $carrierRepository;
     private $requestTempRepository;
+    private $orderRepository;
 
     /**
      * Create a new controller instance.
@@ -19,17 +21,21 @@ class NewRequestController extends Controller
      * @param ClientRepositoryAlias $clientRepository
      * @param CarrierRepository $carrierRepository
      * @param RequestTempRepository $requestTempRepository
+     * @param OrderRepository $orderRepository
      */
     public function __construct(
         ClientRepositoryAlias $clientRepository,
         CarrierRepository $carrierRepository,
-        RequestTempRepository $requestTempRepository
+        RequestTempRepository $requestTempRepository,
+        OrderRepository $orderRepository
+
     ) {
         $this->middleware('auth');
 
         $this->clientRepository = $clientRepository;
         $this->carrierRepository = $carrierRepository;
         $this->requestTempRepository = $requestTempRepository;
+        $this->orderRepository = $orderRepository;
     }
 
     /**
@@ -39,7 +45,9 @@ class NewRequestController extends Controller
      */
     public function index()
     {
-        return view('request');
+        $requests = $this->orderRepository->getAllByRepresentative(10);
+
+        return view('request',['requests' => $requests]);
     }
 
     /**

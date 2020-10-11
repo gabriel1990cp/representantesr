@@ -23,7 +23,7 @@ Route::get('/home', 'NewRequestController@index')->name('home');
 
 Route::post('/create-request', 'NewRequestController@create')->name('create.request');
 
-Route::get('/show-request', 'NewRequestController@show')->name('view.reqquest');
+Route::get('/show-request', 'NewRequestController@show')->name('view.request');
 
 Route::post('/novo-pedido', 'NewRequestController@search')->name('search-client');
 
@@ -40,3 +40,5 @@ Route::view('/adicionar-produto', 'add-product');
 Route::post('/search-product', 'ProductController@search')->name('search-product');
 
 Route::post('/add-product', 'NewRequestController@store')->name('adicionar-produto');
+
+Route::post('/save-order', 'OrderController@save')->name('save-order');

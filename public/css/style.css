@@ -53,3 +53,7 @@ table td input {
     padding: 10px;
     box-sizing: border-box;
 }
+
+.dropdown-menu a:hover {
+    background-color: #3490dc;
+}

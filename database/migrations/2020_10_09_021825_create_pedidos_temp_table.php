@@ -21,7 +21,7 @@ class CreatePedidosTempTable extends Migration
             ->on('produtos');
             $table->integer('quantidade');
             $table->string('cnpj');
-            $table->float('valor_sugerido', 3, 2)->nullable();
+            $table->float('valor_sugerido', 15, 2)->default(0);
             $table->timestamps();
         });
     }

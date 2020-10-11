@@ -1,9 +1,8 @@
 $(document).on('click', '.btn-add-product', function (event) {
     event.preventDefault()
 
-    var amount = $(this).closest("tr").find(".amount").val();
-    var idProduto = $(this).closest("tr").find(".idProduto").val();
-
+    amount = $(this).closest("tr").find(".amount").val();
+    idProduto = $(this).closest("tr").find(".idProduto").val();
 
     if (amount < 1) {
         $(".alert-ajax").show();
@@ -29,15 +28,9 @@ $(document).on('click', '.btn-add-product', function (event) {
             console.log(error)
         }
     });
-
-
-
-
-
 })
 
-function ajaxSetup()
-{
+function ajaxSetup() {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -46,8 +39,7 @@ function ajaxSetup()
 }
 
 
-function getProductByCnpj()
-{
+function getProductByCnpj() {
     ajaxSetup();
 
     $.ajax({
@@ -57,14 +49,28 @@ function getProductByCnpj()
         url: 'get-product-by-cnpj',
         success: function (retorno) {
             $("#products-cnpj tbody tr").remove();
+
+            valueAmount = 0;
+
             $.each(retorno['data'], function (index, value) {
 
                 if (value['quantidade'] > value['info_product']['estoque']) {
                     var zeroedProduct = 'style="background-color:#f1a8a8" title="Estoque zerado!"';
                 }
 
-                rowTable(index, value, zeroedProduct);
+                if (value['valor_sugerido'] > value['info_product']['uprc']) {
+                    valueProduct = value['valor_sugerido'];
+                } else {
+                    valueProduct = value['info_product']['uprc'];
+                }
+
+                rowTable(index, value, zeroedProduct, valueProduct);
+
+                valueAmount = valueAmount + valueProduct * value['quantidade'];
             });
+
+            $("#aexp").val(valueAmount.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+
         },
         error: function (error) {
             alert(error);
@@ -72,12 +78,10 @@ function getProductByCnpj()
     });
 }
 
-var atual = 600000.00;
 
-//com R$
-var f = atual.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+function rowTable(index, value, zeroedProduct, valueProduct) {
 
-function rowTable(index, value, zeroedProduct) {
+    valueAmountRow = value['quantidade'] * valueProduct;
 
     var newRow = $("<tr>");
     var cols = "";
@@ -86,20 +90,17 @@ function rowTable(index, value, zeroedProduct) {
     cols += '<td>' + value['info_product']['srp1'] + '</td>';
     cols += '<td ' + zeroedProduct + '>' + value['quantidade'] + '</td>';
     cols += '<td>' + value['info_product']['uprc'] + '</td>';
-    cols += '<td>' + '<input type="text" name="" id="valor_sugerido" class="valor_sugerido" value="' + value['valor_sugerido'] + '" >' + '<input type="hidden" class="suggested-value" id="suggested-value" value="' + value['id'] + '"></td>';
-    cols += '<td>' + '-' + '</td>';
-    cols += '<td><button type="button" class="btn btn-danger remove-product" data-id="' + value['id'] + '">Remover</button></td>';
+    cols += '<td>' + '<input type="text" name="" class="valor_sugerido_user" value="' + valueProduct.toLocaleString('pt-br', {minimumFractionDigits: 2}) + '" >' + '<input type="hidden" class="suggested-value" value="' + value['id'] + '"></td>';
+    cols += '<td>' + valueAmountRow.toLocaleString('pt-br', {minimumFractionDigits: 2}) + '</td>';
+    cols += '<td><button type="button" class="btn btn-secondary mr-1 valor_sugerido">Atualizar valor</button><button type="button" class="btn btn-danger remove-product" data-id="' + value['id'] + '">Deletar</button></td>';
     newRow.append(cols);
     $("#products-cnpj").append(newRow);
 }
 
 
-
-
-$(parent).ready(function(){
+$(parent).ready(function () {
     getProductByCnpj()
 })
-
 
 $(document).on('click', '.remove-product', function (event) {
     event.preventDefault()
@@ -122,10 +123,10 @@ $(document).on('click', '.remove-product', function (event) {
 })
 
 
-$(document).on('mouseout', '.valor_sugerido', function (event) {
+$(document).on('click', '.valor_sugerido', function (event) {
     event.preventDefault()
 
-    var valor_sugerido = $(this).closest("tr").find(".valor_sugerido").val();
+    var valor_sugerido = $(this).closest("tr").find(".valor_sugerido_user").val();
     var idPedidoTemp = $(this).closest("tr").find(".suggested-value").val();
 
     ajaxSetup();
@@ -142,5 +143,4 @@ $(document).on('mouseout', '.valor_sugerido', function (event) {
             console.log(error)
         }
     });
-
 })
