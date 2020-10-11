@@ -45,7 +45,7 @@ class NewRequestController extends Controller
      */
     public function index()
     {
-        $requests = $this->orderRepository->getAllByRepresentative(10);
+        $requests = $this->orderRepository->getAllByRepresentative();
 
         return view('request',['requests' => $requests]);
     }

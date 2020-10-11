@@ -18,8 +18,8 @@ class OrderRepository
         return Pedidos::create($data);
     }
 
-    public function getAllByRepresentative($representative)
+    public function getAllByRepresentative()
     {
-        return Pedidos::where('an82', $representative)->get();
+        return Pedidos::get();
     }
 }

@@ -69,7 +69,7 @@
                         </div>
                         <div class="form-group col-md-3">
                             <label for="inputEmail4">Desconto aplicado</label>
-                            <input id="ky" name="ky" type="text" class="form-control" placeholder="Digite 18 para representar 18%">
+                            <input id="ky" name="ky" type="number" class="form-control" placeholder="Digite 18 para representar 18%">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="inputEmail4">Frete por conta de</label>
