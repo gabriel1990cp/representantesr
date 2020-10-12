@@ -142,4 +142,3 @@
     </div>
     @include('modal')
 @endsection
-
