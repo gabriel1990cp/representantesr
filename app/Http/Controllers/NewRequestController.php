@@ -130,7 +130,7 @@ class NewRequestController extends Controller
             $this->requestTempRepository->update($request->valor_sugerido, $request->idPedidoTemp);
             return response()->json(['status' => 'success'], 200);
         } catch (\Exception $exception) {
-            return response()->json(['status' => 'error'], 500);
+            return response()->json(['status' => 'error', 'message' => $exception->getMessage()], 500);
         }
     }
 }

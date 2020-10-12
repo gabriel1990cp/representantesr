@@ -15,6 +15,7 @@
     <script src="{{ asset('js/search-product.js') }}" defer></script>
     <script src="{{ asset('js/product.js') }}" defer></script>
     <script src="{{ asset('js/save-request.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.blockUI.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -76,7 +77,9 @@
                 </div>
             </div>
         </nav>
-
+        <div id="domMessage" style="display:none;">
+            <h1>Aguarde!</h1>
+        </div>
         <main class="py-4">
             @yield('content')
         </main>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\OrderRepository;
 use App\Http\Controllers\Controller;
 use App\Repositories\RequestTempRepository;
+use App\Repositories\ItemPedidoRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,11 +14,17 @@ class OrderController extends Controller
 {
     private $order;
     private $temporaryOrder;
+    private $itemPedido;
 
-    public function __construct (OrderRepository $order, RequestTempRepository $temporaryOrder) {
+    public function __construct(
+        OrderRepository $order,
+        RequestTempRepository $temporaryOrder,
+        ItemPedidoRepository $itemPedido)
+    {
         $this->middleware('auth');
         $this->order = $order;
         $this->temporaryOrder = $temporaryOrder;
+        $this->itemPedido = $itemPedido;
     }
 
 
@@ -50,19 +57,26 @@ class OrderController extends Controller
 
             $returnIdOrderCreate = $this->order->create($dataOrderCreate);
 
-            //$returnIdOrderCreate->idPedido)
-
+            /**
             foreach ($temporaryRequestItem as $rowTemporaryItem) {
-                //dd($rowTemporaryItem);
+                $dataTemporaryRequestItem['doco'] = $returnIdOrderCreate->idPedido;
+                $dataTemporaryRequestItem['itm'] = $rowTemporaryItem['infoProduct']['itm'];
+                $dataTemporaryRequestItem['litm'] = $rowTemporaryItem['infoProduct']['litm'];
+                $dataTemporaryRequestItem['um'] = $rowTemporaryItem['infoProduct']['uom1'];
+                $dataTemporaryRequestItem['uorg'] = $rowTemporaryItem['quantidade'];
+                $dataTemporaryRequestItem['aexp'] = $rowTemporaryItem['infoProduct']['uprc'];
+                $dataTemporaryRequestItem['uncs'] = $rowTemporaryItem['infoProduct']['uprc'];
+                $dataTemporaryRequestItem['uprc'] = $rowTemporaryItem['valor_digitado'] ?? $rowTemporaryItem['infoProduct']['uprc'];
+
+                $this->itemPedido->create($dataTemporaryRequestItem);
             }
+            */
             DB::commit();
             return redirect()->route('home');
         } catch (\Exception $exception) {
             DB::rollBack();
             return response(['status' => 'error', 'data' => $exception->getMessage()], 500);
         }
-
-
 
 
     }

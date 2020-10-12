@@ -20,9 +20,11 @@ $(document).on('click', '.btn-add-product', function (event) {
         data: {idProduto, amount},
         url: 'add-product',
         success: function (retorno) {
+            $.blockUI({ message: $('#domMessage') });
             if (retorno) {
                 getProductByCnpj();
             }
+            $.unblockUI();
         },
         error: function (error) {
             console.log(error)
@@ -48,6 +50,7 @@ function getProductByCnpj() {
         data: {},
         url: 'get-product-by-cnpj',
         success: function (retorno) {
+            $.blockUI({ message: $('#domMessage') });
             $("#products-cnpj tbody tr").remove();
 
             valueAmount = 0;
@@ -58,7 +61,7 @@ function getProductByCnpj() {
                     var zeroedProduct = 'style="background-color:#f1a8a8" title="Estoque zerado!"';
                 }
 
-                if (value['valor_sugerido'] > value['info_product']['uprc']) {
+                if (value['valor_sugerido'] > 0) {
                     valueProduct = value['valor_sugerido'];
                 } else {
                     valueProduct = value['info_product']['uprc'];
@@ -70,7 +73,7 @@ function getProductByCnpj() {
             });
 
             $("#aexp").val(valueAmount.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-
+            $.unblockUI();
         },
         error: function (error) {
             alert(error);
@@ -114,7 +117,9 @@ $(document).on('click', '.remove-product', function (event) {
         data: {idPedidoTemp},
         url: 'remove-product',
         success: function () {
+            $.blockUI({ message: $('#domMessage') });
             getProductByCnpj()
+            $.unblockUI();
         },
         error: function (error) {
             console.log(error)
@@ -144,3 +149,4 @@ $(document).on('click', '.valor_sugerido', function (event) {
         }
     });
 })
+

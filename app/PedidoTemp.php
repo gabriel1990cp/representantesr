@@ -11,7 +11,7 @@ class PedidoTemp extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'idProduto', 'quantidade', 'cnpj'
+        'idProduto', 'quantidade', 'cnpj', 'valor_sugerido'
     ];
 
     public function infoProduct()

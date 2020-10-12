@@ -24,7 +24,7 @@ class RequestTempRepository
     public function update($valorSugerido, $id)
     {
         $pedidoTemp = PedidoTemp::find($id);
-        $pedidoTemp->valor_sugerido = $valorSugerido;
+        $pedidoTemp->valor_sugerido = str_replace(',', '.', $valorSugerido);
         return $pedidoTemp->save();
     }
 }
