@@ -6,6 +6,8 @@ use App\Repositories\CarrierRepository;
 use App\Repositories\ClientRepository as ClientRepositoryAlias;
 use App\Repositories\RequestTempRepository;
 use App\Repositories\OrderRepository;
+use App\Repositories\ItemPedidoRepository;
+use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 
 class NewRequestController extends Controller
@@ -14,20 +16,16 @@ class NewRequestController extends Controller
     private $carrierRepository;
     private $requestTempRepository;
     private $orderRepository;
+    private $itemPedidoRepository;
+    private $productRepository;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @param ClientRepositoryAlias $clientRepository
-     * @param CarrierRepository $carrierRepository
-     * @param RequestTempRepository $requestTempRepository
-     * @param OrderRepository $orderRepository
-     */
     public function __construct(
         ClientRepositoryAlias $clientRepository,
         CarrierRepository $carrierRepository,
         RequestTempRepository $requestTempRepository,
-        OrderRepository $orderRepository
+        OrderRepository $orderRepository,
+        ItemPedidoRepository $itemPedidoRepository,
+        ProductRepository $productRepository
 
     ) {
         $this->middleware('auth');
@@ -36,42 +34,54 @@ class NewRequestController extends Controller
         $this->carrierRepository = $carrierRepository;
         $this->requestTempRepository = $requestTempRepository;
         $this->orderRepository = $orderRepository;
+        $this->itemPedidoRepository = $itemPedidoRepository;
+        $this->productRepository = $productRepository;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response|\Illuminate\View\View
-     */
+
     public function index()
     {
         $requests = $this->orderRepository->getAllByRepresentative();
 
-        return view('request',['requests' => $requests]);
+        return view('request', ['requests' => $requests]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
+
     public function create()
     {
         return view('create-request');
     }
 
-    public function show()
+    public function show($id)
     {
-        return view('view-request');
+        $request = $this->orderRepository->getById($id);
+
+        $request['items'] = $this->otherInformationItem($this->itemPedidoRepository->getByIdPedido($id));
+
+        $request['client'] = $this->clientRepository->getClientByCnpj($request->tax);
+
+        return view('view-request', ['request' => $request]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
-     */
+    public function otherInformationItem($items)
+    {
+        if ($items) {
+            foreach ($items as $key => $item) {
+                $getItem = $this->productRepository->findId($item->id_produto);
+                $items[$key]['dsc1'] = $getItem->dsc1;
+                $items[$key]['srp1'] = $getItem->srp1;
+
+                if ($item->uprc > 0 ) {
+                    $items[$key]['amount'] = $item->uprc * $item->uorg;
+                } else {
+                    $items[$key]['amount'] = $item->aexp * $item->uorg;
+                }
+            }
+        }
+        return $items;
+    }
+
+
     public function store(Request $request)
     {
         $data = array(
@@ -88,12 +98,7 @@ class NewRequestController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
-     */
+
     public function destroy(Request $request)
     {
         $returnDestroy = $this->requestTempRepository->destroy($request->idPedidoTemp);

@@ -23,7 +23,7 @@ Route::get('/home', 'NewRequestController@index')->name('home');
 
 Route::post('/create-request', 'NewRequestController@create')->name('create.request');
 
-Route::get('/show-request', 'NewRequestController@show')->name('view.request');
+Route::get('/show-request/{id}', 'NewRequestController@show')->name('view.request');
 
 Route::post('/novo-pedido', 'NewRequestController@search')->name('search-client');
 

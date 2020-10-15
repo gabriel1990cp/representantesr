@@ -23,8 +23,8 @@ class Produto extends Model
         return $this->hasMany(Produto::class, 'idProduto', 'idProduto');
     }
 
-    public function getUprcAttribute($value)
-    {
-        return $this->attributes['uprc'] =  number_format($value, 2);
-    }
+    //public function getUprcAttribute($value)
+    //{
+     //   return $this->attributes['uprc'] =  number_format($value, 2);
+    //}
 }

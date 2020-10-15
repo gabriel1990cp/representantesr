@@ -49,8 +49,8 @@
                     <tbody>
                     @isset($requests)
                         @foreach($requests as $request)
-                            <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
-                                <th scope="row">1</th>
+                            <tr class="clickable-tr" data-href='{{url('/show-request/' . $request->idPedido)}}'>
+                                <th scope="row">{{$request->idPedido}}</th>
                                 <td>{{$request->tax}}</td>
                                 <td>{{date('d/m/Y', strtotime($request->drqj))}}</td>
                                 <td>{{$request->aexp}}</td>

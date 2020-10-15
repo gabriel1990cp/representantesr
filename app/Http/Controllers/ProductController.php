@@ -17,12 +17,6 @@ class ProductController extends Controller
         $this->product = $product;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-
     public function show()
     {
         return $this->product->find(20);

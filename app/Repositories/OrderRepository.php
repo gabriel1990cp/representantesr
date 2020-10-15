@@ -23,6 +23,11 @@ class OrderRepository
         return Pedidos::get();
     }
 
+    public function getById($id)
+    {
+        return Pedidos::find($id);
+    }
+
     public function update($data, $id)
     {
         $pedido = Pedidos::find($id);

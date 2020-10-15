@@ -16,43 +16,60 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">CNPJ Cliente</label>
-                        <input type="text" class="form-control" id="id-cliente" value="A AEROJET BRASILEIRA DE FIBERGLASS LTDA" disabled>
-                    </div>
+                <div class="alert alert-secondary" role="alert">
+                    <strong>{{$request['client']->alph}} - CNPJ {{$request['client']->tax}}</strong>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Data pedido</label>
-                        <input type="text" class="form-control" id="id-data-pedido" value="20/08/2020" disabled>
+                        <input type="text" class="form-control" value="{{$request->drqj}}" disabled>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Local retirada</label>
-                        <input type="text" class="form-control" id="id-local-retirada" value="Matriz" disabled>
+                        <input type="text" class="form-control" value="{{$request->mcu}}" disabled>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Valor total</label>
-                        <input type="text" class="form-control" id="id-valor-total" value="R$200,50" disabled>
+                        <input type="text" class="form-control" value="{{$request->aexp}}" disabled>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="inputEmail4">Data de entrega</label>
-                        <input type="text" class="form-control" id="id-data-pedido" value="25/08/2020" disabled>
+                        <label for="inputEmail4">Retirada Programada</label>
+                        <input type="text" class="form-control" id="id-data-pedido" value="{{$request->pddj}}"  disabled>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
+                        <label for="inputEmail4">Data de entrada do pedido</label>
+                        <input  type="text" class="form-control" value="{{$request->pddj}}" disabled>
+                    </div>
+                    <div class="form-group col-md-3">
                         <label for="inputEmail4">Cond. PGTO</label>
-                        <input type="text" class="form-control" id="id-cond-pagamento" disabled>
+                        <input type="text" class="form-control" value="{{$request->ptc}}" disabled>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Desconto aplicado</label>
-                        <input type="text" class="form-control" id="id-desconto-aplicado" value="10%" disabled>
+                        <input type="text" class="form-control" value="{{$request->ky}}%" disabled>
                     </div>
 
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Frete por conta de</label>
-                        <input type="text" class="form-control" id="id-frete-por-conta" value="Cliente" disabled>
+                        <input type="text" class="form-control" value="{{$request->frth}}" disabled>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputEmail4">Transportadora</label>
+                        <input type="text" class="form-control" value="{{$request->AN83}}" disabled>
+                    </div>
+                    <div class="form-group col-md-9">
+                        <label for="inputEmail4">Ordem de compra</label>
+                        <input type="text" class="form-control" value="{{$request->AA20}}" disabled>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="exampleFormControlTextarea1">Observação</label>
+                        <textarea class="form-control" disabled rows="5">{{$request->Observacao}}</textarea>
                     </div>
                 </div>
                 <div class="form-row">
@@ -63,7 +80,7 @@
                             <tr>
                                 <th scope="col">Cod</th>
                                 <th scope="col">Descrição</th>
-                                <th scope="col">UM</th>
+                                <th scope="col">Grupo</th>
                                 <th scope="col">Quantidade</th>
                                 <th scope="col">Valor un.</th>
                                 <th scope="col">Valor un. sugerido</th>
@@ -71,36 +88,17 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($request['items'] as $item)
                             <tr>
-                                <th scope="row">ABC123</th>
-                                <td>Bola azul</td>
-                                <td>UM</td>
-                                <td>10</td>
-                                <td>5,30</td>
-                                <td><input type="text" class="form-control" id="inputEmail4" value="8,30" disabled></td>
-                                <td>80,30</td>
-
+                                    <th scope="row">{{$item->itm}}</th>
+                                    <td>{{$item->dsc1}}</td>
+                                    <td>{{$item->srp1}}</td>
+                                    <td>{{$item->uorg}}</td>
+                                    <td>{{$item->aexp}}</td>
+                                    <td>{{$item->uprc}}</td>
+                                    <td>{{$item->amount}}</td>
                             </tr>
-                            <tr>
-                                <th scope="row">ABC123</th>
-                                <td>Bola roxa</td>
-                                <td>UM</td>
-                                <td>10</td>
-                                <td>5,30</td>
-                                <td><input type="text" class="form-control" id="inputEmail4" value="8,30" disabled></td>
-                                <td>80,30</td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row">ABC123</th>
-                                <td>Bola amarela</td>
-                                <td>UM</td>
-                                <td>10</td>
-                                <td>5,30</td>
-                                <td><input type="text" class="form-control" id="inputEmail4" value="8,30" disabled></td>
-                                <td>80,30</td>
-
-                            </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -109,7 +107,6 @@
                     Cancelar
                 </a>
             </div>
-
         </div>
     </div>
     @include('modal')

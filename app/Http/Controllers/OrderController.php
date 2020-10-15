@@ -70,6 +70,7 @@ class OrderController extends Controller
 
                 $dataTemporaryRequestItem['idpedido'] = $returnIdOrderCreate->idPedido;
                 $dataTemporaryRequestItem['doco'] = 0;
+                $dataTemporaryRequestItem['id_produto'] = $rowTemporaryItem['idProduto'];
                 $dataTemporaryRequestItem['itm'] = $rowTemporaryItem['infoProduct']['itm'];
                 $dataTemporaryRequestItem['litm'] = $rowTemporaryItem['infoProduct']['litm'];
                 $dataTemporaryRequestItem['um'] = $rowTemporaryItem['infoProduct']['uom1'];

@@ -20,6 +20,11 @@ class ProductRepository
         return $this->product->where('itm', $code)->limit($this->limit)->get();
     }
 
+    public function findId($id)
+    {
+        return $this->product->where('idProduto', $id)->first();
+    }
+
     public function findName($name)
     {
         return $this->product->where('dsc1', 'like', "%{$name}%")->limit($this->limit)->get();
