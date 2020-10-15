@@ -50,7 +50,7 @@
                     @isset($requests)
                         @foreach($requests as $request)
                             <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
-                                <th scope="row">1</th>
+                                <th scope="row">{{dd($request)}}</th>
                                 <td>{{$request->tax}}</td>
                                 <td>{{$request->drqj}}</td>
                                 <td>{{$request->aexp}}</td>

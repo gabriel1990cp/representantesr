@@ -8,10 +8,8 @@ class ItemPedido extends Model
 {
     protected $table = 'item_pedido';
 
-    protected $primaryKey = 'idpedido';
-
     protected $fillable = [
-        'lnid', 'doco', 'itm', 'litm', 'um', 'uorg', 'aexp', 'uncs', 'uprc'
+        'idpedido', 'lnid', 'doco', 'itm', 'litm', 'um', 'uorg', 'aexp', 'uncs', 'uprc'
     ];
 
     public $timestamps = false;

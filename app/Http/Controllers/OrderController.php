@@ -57,9 +57,10 @@ class OrderController extends Controller
 
             $returnIdOrderCreate = $this->order->create($dataOrderCreate);
 
-            /**
             foreach ($temporaryRequestItem as $rowTemporaryItem) {
-                $dataTemporaryRequestItem['doco'] = $returnIdOrderCreate->idPedido;
+                $dataTemporaryRequestItem['idpedido'] = $returnIdOrderCreate->idPedido;
+                $dataTemporaryRequestItem['lnid'] = $returnIdOrderCreate->idPedido;
+                $dataTemporaryRequestItem['doco'] = 0;
                 $dataTemporaryRequestItem['itm'] = $rowTemporaryItem['infoProduct']['itm'];
                 $dataTemporaryRequestItem['litm'] = $rowTemporaryItem['infoProduct']['litm'];
                 $dataTemporaryRequestItem['um'] = $rowTemporaryItem['infoProduct']['uom1'];
@@ -70,7 +71,7 @@ class OrderController extends Controller
 
                 $this->itemPedido->create($dataTemporaryRequestItem);
             }
-            */
+
             DB::commit();
             return redirect()->route('home');
         } catch (\Exception $exception) {
