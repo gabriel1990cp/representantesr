@@ -25,6 +25,6 @@ class Produto extends Model
 
     public function getUprcAttribute($value)
     {
-        return $this->attributes['uprc'] = number_format($value, 2);
+        return $this->attributes['uprc'] =  number_format($value, 2);
     }
 }

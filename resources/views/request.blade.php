@@ -50,11 +50,11 @@
                     @isset($requests)
                         @foreach($requests as $request)
                             <tr class="clickable-tr" data-href='{{url('/show-request')}}'>
-                                <th scope="row">{{dd($request)}}</th>
+                                <th scope="row">1</th>
                                 <td>{{$request->tax}}</td>
-                                <td>{{$request->drqj}}</td>
+                                <td>{{date('d/m/Y', strtotime($request->drqj))}}</td>
                                 <td>{{$request->aexp}}</td>
-                                <td>{{$request->pddj}}</td>
+                                <td>{{date('d/m/Y', strtotime($request->pddj))}}</td>
                             </tr>
                         @endforeach
                     @endisset

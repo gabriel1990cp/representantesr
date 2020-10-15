@@ -50,27 +50,27 @@ function getProductByCnpj() {
         success: function (retorno) {
             $("#products-cnpj tbody tr").remove();
 
-            valueAmount = 0;
+                valueAmount = 0;
 
-            $.each(retorno['data'], function (index, value) {
+                $.each(retorno['data'], function (index, value) {
 
-                if (value['quantidade'] > value['info_product']['estoque']) {
-                    var zeroedProduct = 'style="background-color:#f1a8a8" title="Estoque zerado!"';
-                }
+                    if (value['quantidade'] > value['info_product']['estoque']) {
+                        var zeroedProduct = 'style="background-color:#f1a8a8" title="Estoque zerado!"';
+                    }
 
-                if (value['valor_sugerido'] > 0) {
-                    valueProduct = value['valor_sugerido'];
-                } else {
-                    valueProduct = value['info_product']['uprc'];
-                }
+                    if (value['valor_sugerido'] > 0) {
+                        valueProduct = value['valor_sugerido'];
+                    } else {
+                        valueProduct = value['info_product']['uprc'];
+                    }
 
-                rowTable(index, value, zeroedProduct, valueProduct);
+                    rowTable(index, value, zeroedProduct, valueProduct);
 
-                valueAmount = valueAmount + valueProduct * value['quantidade'];
-            });
+                    valueAmount = valueAmount + valueProduct * value['quantidade'];
+                });
 
-            $("#aexp").val(valueAmount.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-            },
+                $("#aexp").val(valueAmount);
+        },
         error: function (error) {
             alert(error);
         }
@@ -89,8 +89,8 @@ function rowTable(index, value, zeroedProduct, valueProduct) {
     cols += '<td>' + value['info_product']['srp1'] + '</td>';
     cols += '<td ' + zeroedProduct + '>' + value['quantidade'] + '</td>';
     cols += '<td>' + value['info_product']['uprc'] + '</td>';
-    cols += '<td>' + '<input type="text" name="" class="valor_sugerido_user" value="' + valueProduct.toLocaleString('pt-br', {minimumFractionDigits: 2}) + '" >' + '<input type="hidden" class="suggested-value" value="' + value['id'] + '"></td>';
-    cols += '<td>' + valueAmountRow.toLocaleString('pt-br', {minimumFractionDigits: 2}) + '</td>';
+    cols += '<td>' + '<input type="text" name="" class="valor_sugerido_user" value="' + valueProduct + '" >' + '<input type="hidden" class="suggested-value" value="' + value['id'] + '"></td>';
+    cols += '<td>' + valueAmountRow + '</td>';
     cols += '<td><button type="button" class="btn btn-secondary mr-1 valor_sugerido">Atualizar valor</button><button type="button" class="btn btn-danger remove-product" data-id="' + value['id'] + '">Deletar</button></td>';
     newRow.append(cols);
     $("#products-cnpj").append(newRow);

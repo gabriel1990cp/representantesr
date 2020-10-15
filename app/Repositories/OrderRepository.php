@@ -22,4 +22,11 @@ class OrderRepository
     {
         return Pedidos::get();
     }
+
+    public function update($data, $id)
+    {
+        $pedido = Pedidos::find($id);
+        $pedido->aexp = $data;
+        return $pedido->save();
+    }
 }

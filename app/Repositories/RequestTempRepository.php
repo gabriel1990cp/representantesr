@@ -27,4 +27,9 @@ class RequestTempRepository
         $pedidoTemp->valor_sugerido = str_replace(',', '.', $valorSugerido);
         return $pedidoTemp->save();
     }
+
+    public function destroyByCnpj($cnpj)
+    {
+        return PedidoTemp::where('cnpj', $cnpj)->delete();
+    }
 }

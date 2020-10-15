@@ -38,13 +38,13 @@ class OrderController extends Controller
             $cnpjCurrentClient = session()->get('CNPJCurrentClient');
 
             if (empty($cnpjCurrentClient)) {
-                throw new \Exception('Error CNPJ!');
+                throw new \Exception('Error CNPJ!', 500);
             }
 
             $temporaryRequestItem = $this->temporaryOrder->getProductByCnpj($cnpjCurrentClient);
 
             if (empty($temporaryRequestItem)) {
-                throw new \Exception('Temporary Order!');
+                throw new \Exception('Error temporary Order!', 500);
             }
 
             $dataOrderCreate = $request->all();
@@ -57,9 +57,18 @@ class OrderController extends Controller
 
             $returnIdOrderCreate = $this->order->create($dataOrderCreate);
 
+            $amount = 0;
+
             foreach ($temporaryRequestItem as $rowTemporaryItem) {
+                $amountRow = 0;
+
+                if ($rowTemporaryItem['valor_sugerido'] > 0) {
+                    $amountRow = $rowTemporaryItem['quantidade'] * $rowTemporaryItem['valor_sugerido'];
+                } else {
+                    $amountRow = $rowTemporaryItem['quantidade'] * $rowTemporaryItem['infoProduct']['uprc'];
+                }
+
                 $dataTemporaryRequestItem['idpedido'] = $returnIdOrderCreate->idPedido;
-                $dataTemporaryRequestItem['lnid'] = $returnIdOrderCreate->idPedido;
                 $dataTemporaryRequestItem['doco'] = 0;
                 $dataTemporaryRequestItem['itm'] = $rowTemporaryItem['infoProduct']['itm'];
                 $dataTemporaryRequestItem['litm'] = $rowTemporaryItem['infoProduct']['litm'];
@@ -67,18 +76,31 @@ class OrderController extends Controller
                 $dataTemporaryRequestItem['uorg'] = $rowTemporaryItem['quantidade'];
                 $dataTemporaryRequestItem['aexp'] = $rowTemporaryItem['infoProduct']['uprc'];
                 $dataTemporaryRequestItem['uncs'] = $rowTemporaryItem['infoProduct']['uprc'];
-                $dataTemporaryRequestItem['uprc'] = $rowTemporaryItem['valor_digitado'] ?? $rowTemporaryItem['infoProduct']['uprc'];
+                $dataTemporaryRequestItem['uprc'] = $rowTemporaryItem['valor_sugerido'] ?? $rowTemporaryItem['infoProduct']['uprc'];
 
-                $this->itemPedido->create($dataTemporaryRequestItem);
+                $returnCreateItemPedido = $this->itemPedido->create($dataTemporaryRequestItem);
+
+                if (is_array($returnCreateItemPedido)) {
+                    throw new \Exception('Error create item pedido!', 500);
+                }
+
+                $amount += $amountRow;
+            }
+
+            if (!$this->order->update($amount, $returnIdOrderCreate->idPedido)) {
+                throw new \Exception('Error update amount!', 500);
+            }
+
+            if (!$this->temporaryOrder->destroyByCnpj($cnpjCurrentClient)) {
+                throw new \Exception('Error destrou by cnpj!', 500);
             }
 
             DB::commit();
+
             return redirect()->route('home');
         } catch (\Exception $exception) {
             DB::rollBack();
             return response(['status' => 'error', 'data' => $exception->getMessage()], 500);
         }
-
-
     }
 }

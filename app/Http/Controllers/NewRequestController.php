@@ -61,6 +61,11 @@ class NewRequestController extends Controller
         return view('create-request');
     }
 
+    public function show()
+    {
+        return view('view-request');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

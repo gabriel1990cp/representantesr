@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     protected $product;
 
-    protected $limit = 10;
+    protected $limit = 20;
 
     public function __construct(ProductRepository $product)
     {
@@ -25,7 +25,7 @@ class ProductController extends Controller
 
     public function show()
     {
-        return $this->product->find(10);
+        return $this->product->find(20);
     }
 
     public function search(Request $request)
