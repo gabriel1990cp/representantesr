@@ -14,8 +14,18 @@ class ItemPedido extends Model
 
     public $timestamps = false;
 
-    //public function getUprcAttribute($value)
-    //{
-        //return $this->attributes['uprc'] =  number_format($value, 2);
-    //}
+    public function getUprcAttribute($value)
+    {
+        return $this->attributes['uprc'] =  number_format($value, 2);
+    }
+
+    public function getUncsAttribute($value)
+    {
+        return $this->attributes['uncs'] =  number_format($value, 2);
+    }
+
+    public function getAexpAttribute($value)
+    {
+        return $this->attributes['aexp'] =  number_format($value, 2);
+    }
 }

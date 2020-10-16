@@ -131,13 +131,17 @@ class NewRequestController extends Controller
             throw new \Exception('Error get products by CNPJ');
         }
 
+        $returnGetProductByCnpj->filter(function ($value){
+            $value['valorSugerido']  = number_format($value['valorSugerido'], 2);
+        });
+
         return response()->json(['status' => 'success', 'data' => $returnGetProductByCnpj], 201);
     }
 
     public function suggestedValueProduct(Request $request)
     {
         try {
-            $this->requestTempRepository->update($request->valor_sugerido, $request->idPedidoTemp);
+            $this->requestTempRepository->update($request->valorSugerido, $request->idPedidoTemp);
             return response()->json(['status' => 'success'], 200);
         } catch (\Exception $exception) {
             return response()->json(['status' => 'error', 'message' => $exception->getMessage()], 500);

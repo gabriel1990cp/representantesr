@@ -58,8 +58,8 @@ function getProductByCnpj() {
                         var zeroedProduct = 'style="background-color:#f1a8a8" title="Estoque zerado!"';
                     }
 
-                    if (value['valor_sugerido'] > 0) {
-                        valueProduct = value['valor_sugerido'];
+                    if (value['valorSugerido'] > 0) {
+                        valueProduct = value['valorSugerido'];
                     } else {
                         valueProduct = value['info_product']['uprc'];
                     }
@@ -69,7 +69,7 @@ function getProductByCnpj() {
                     valueAmount = valueAmount + valueProduct * value['quantidade'];
                 });
 
-                $("#aexp").val(valueAmount);
+                $("#aexp").val(valueAmount.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         },
         error: function (error) {
             alert(error);
@@ -89,9 +89,9 @@ function rowTable(index, value, zeroedProduct, valueProduct) {
     cols += '<td>' + value['info_product']['srp1'] + '</td>';
     cols += '<td ' + zeroedProduct + '>' + value['quantidade'] + '</td>';
     cols += '<td>' + value['info_product']['uprc'] + '</td>';
-    cols += '<td>' + '<input type="text" name="" class="valor_sugerido_user" value="' + valueProduct + '" >' + '<input type="hidden" class="suggested-value" value="' + value['id'] + '"></td>';
-    cols += '<td>' + valueAmountRow + '</td>';
-    cols += '<td><button type="button" class="btn btn-secondary mr-1 valor_sugerido">Atualizar valor</button><button type="button" class="btn btn-danger remove-product" data-id="' + value['id'] + '">Deletar</button></td>';
+    cols += '<td>' + '<input type="text" name="" class="valorSugerido_user" value="' + valueProduct + '" >' + '<input type="hidden" class="suggested-value" value="' + value['id'] + '"></td>';
+    cols += '<td>' + valueAmountRow.toLocaleString('pt-br', {minimumFractionDigits: 2}) + '</td>';
+    cols += '<td><button type="button" class="btn btn-secondary mr-1 valorSugerido">Atualizar valor</button><button type="button" class="btn btn-danger remove-product" data-id="' + value['id'] + '">Deletar</button></td>';
     newRow.append(cols);
     $("#products-cnpj").append(newRow);
 }
@@ -122,10 +122,10 @@ $(document).on('click', '.remove-product', function (event) {
 })
 
 
-$(document).on('click', '.valor_sugerido', function (event) {
+$(document).on('click', '.valorSugerido', function (event) {
     event.preventDefault()
 
-    var valor_sugerido = $(this).closest("tr").find(".valor_sugerido_user").val();
+    var valorSugerido = $(this).closest("tr").find(".valorSugerido_user").val();
     var idPedidoTemp = $(this).closest("tr").find(".suggested-value").val();
 
     ajaxSetup();
@@ -133,7 +133,7 @@ $(document).on('click', '.valor_sugerido', function (event) {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        data: {idPedidoTemp, valor_sugerido},
+        data: {idPedidoTemp, valorSugerido},
         url: 'suggested-value-product',
         success: function () {
             getProductByCnpj()

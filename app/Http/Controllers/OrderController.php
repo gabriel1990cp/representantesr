@@ -62,8 +62,8 @@ class OrderController extends Controller
             foreach ($temporaryRequestItem as $rowTemporaryItem) {
                 $amountRow = 0;
 
-                if ($rowTemporaryItem['valor_sugerido'] > 0) {
-                    $amountRow = $rowTemporaryItem['quantidade'] * $rowTemporaryItem['valor_sugerido'];
+                if ($rowTemporaryItem['valorSugerido'] > 0) {
+                    $amountRow = $rowTemporaryItem['quantidade'] * $rowTemporaryItem['valorSugerido'];
                 } else {
                     $amountRow = $rowTemporaryItem['quantidade'] * $rowTemporaryItem['infoProduct']['uprc'];
                 }
@@ -77,7 +77,7 @@ class OrderController extends Controller
                 $dataTemporaryRequestItem['uorg'] = $rowTemporaryItem['quantidade'];
                 $dataTemporaryRequestItem['aexp'] = $rowTemporaryItem['infoProduct']['uprc'];
                 $dataTemporaryRequestItem['uncs'] = $rowTemporaryItem['infoProduct']['uprc'];
-                $dataTemporaryRequestItem['uprc'] = $rowTemporaryItem['valor_sugerido'] ?? $rowTemporaryItem['infoProduct']['uprc'];
+                $dataTemporaryRequestItem['uprc'] = $rowTemporaryItem['valorSugerido'] ?? $rowTemporaryItem['infoProduct']['uprc'];
 
                 $returnCreateItemPedido = $this->itemPedido->create($dataTemporaryRequestItem);
 

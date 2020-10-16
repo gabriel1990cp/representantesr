@@ -22,7 +22,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Data pedido</label>
-                        <input type="text" class="form-control" value="{{$request->drqj}}" disabled>
+                        <input type="text" class="form-control" value="{{date('d/m/Y', strtotime($request->drqj))}}" disabled>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Local retirada</label>
@@ -34,13 +34,13 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Retirada Programada</label>
-                        <input type="text" class="form-control" id="id-data-pedido" value="{{$request->pddj}}"  disabled>
+                        <input type="text" class="form-control" id="id-data-pedido" value="{{date('d/m/Y', strtotime($request->pddj))}}"  disabled>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Data de entrada do pedido</label>
-                        <input  type="text" class="form-control" value="{{$request->pddj}}" disabled>
+                        <input  type="text" class="form-control" value="{{date('d/m/Y', strtotime($request->pddj))}}" disabled>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Cond. PGTO</label>
@@ -96,7 +96,7 @@
                                     <td>{{$item->uorg}}</td>
                                     <td>{{$item->aexp}}</td>
                                     <td>{{$item->uprc}}</td>
-                                    <td>{{$item->amount}}</td>
+                                    <td>{{number_format($item->amount, 2)}}</td>
                             </tr>
                             @endforeach
                             </tbody>

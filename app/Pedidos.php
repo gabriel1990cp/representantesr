@@ -16,4 +16,9 @@ class Pedidos extends Model
     ];
 
     public $timestamps = false;
+
+    public function getAexpAttribute($value)
+    {
+        return $this->attributes['aexp'] =  number_format($value, 2);
+    }
 }
