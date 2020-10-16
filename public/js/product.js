@@ -72,7 +72,7 @@ function getProductByCnpj() {
                 $("#aexp").val(valueAmount.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         },
         error: function (error) {
-            alert(error);
+            console.log(error)
         }
     });
 }
